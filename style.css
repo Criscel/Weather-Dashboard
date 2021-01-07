@@ -1,0 +1,32 @@
+header {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(44, 43, 43);
+    color: white;
+    font-size: 40px;
+    font-style: bold;
+    text-align: center;
+}
+
+.description {
+    color: Blue;
+    font-style: bold;
+    font-size: 25px;
+}
+
+.search-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.city-name {
+    font-size: 30px;
+}
+
+.alt {
+    color: black;
+}
+
+.forecast-date {
+    font-size: 18px;
+}
