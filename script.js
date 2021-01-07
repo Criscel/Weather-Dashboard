@@ -27,9 +27,10 @@ function initPage() {
             console.log(currentDate);
             var day = currentDate.getDate();
             var month = currentDate.getMonth() + 1;
+            console.log(month);
             var year = currentDate.getFullYear();
-            nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
-            
+            nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
+        
             currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png"); //@2x to magnify image
            
             currentDescEl.innerHTML = (response.data.weather[0].description);
