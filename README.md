@@ -1,1 +1,2 @@
 # Weather-Dashboard
+This page will enable the users to search for a City then the current weather will be displayed on the right side of the screen and 5 days forecast will be displayed at the bottom of the screen.  An icon with description is also present on the interface.
