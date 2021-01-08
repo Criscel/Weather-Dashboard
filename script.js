@@ -26,10 +26,13 @@ function initPage() {
             var currentDate = new Date(response.data.dt*1000);
             console.log(currentDate);
             var day = currentDate.getDate();
-            var month = currentDate.getMonth() + 1;
-            console.log(month);
             var year = currentDate.getFullYear();
-            nameEl.innerHTML = response.data.name + " (" + day + "/" + month + "/" + year + ") ";
+            var time = new Date().toLocaleTimeString();
+            var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+            //nameEl.innerHTML = response.data.name + " (" + day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + hour + ":" + minutes + ") ";
+
+            nameEl.innerHTML = response.data.name + " (" + day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + time + ") ";
         
             currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png"); //@2x to magnify image
            
