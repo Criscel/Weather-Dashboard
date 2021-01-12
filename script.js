@@ -3,6 +3,7 @@ function initPage() {
     var searchEl = document.getElementById("search-button");
     var clearEl = document.getElementById("clear-history");
     var nameEl = document.getElementById("city-name");
+    var curDayEl = document.getElementById("current-day" );
     var currentPicEl = document.getElementById("current-pic");
     var currentDescEl = document.querySelector(".description");
     var currentTempEl = document.getElementById("temperature");
@@ -13,6 +14,7 @@ function initPage() {
 
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
     console.log(searchHistory);
+    
     
     let APIKey = "50a31d705e6f82744d489f946e338653";
 
@@ -27,12 +29,25 @@ function initPage() {
             console.log(currentDate);
             var day = currentDate.getDate();
             var year = currentDate.getFullYear();
-            var time = new Date().toLocaleTimeString();
+            //var time = new Date().toLocaleTimeString();
             var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-            //nameEl.innerHTML = response.data.name + " (" + day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + hour + ":" + minutes + ") ";
+            window.onload = currentDay();
+            function currentDay () {
+                var currentDate = new Date(response.data.dt*1000);
+                console.log(currentDate);
+                var day = currentDate.getDate();
+                var year = currentDate.getFullYear();
+                var time = new Date().toLocaleTimeString();
+                var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-            nameEl.innerHTML = response.data.name + " (" + day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + time + ") ";
+                curDayEl.innerHTML = day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + time;
+                setTimeout(currentDay,1000);
+            }
+
+            //nameEl.innerHTML = response.data.name + " (" + day + " " + monthName[currentDate.getMonth()] + " " + year + " @ " + time + ") ";
+
+            nameEl.innerHTML = response.data.name + " - ";
         
             currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png"); //@2x to magnify image
            
@@ -107,6 +122,7 @@ function initPage() {
     clearEl.addEventListener("click",function() {
         searchHistory = [];
         renderSearchHistory();
+        localStorage.clear();
     })
 
 //Function for get Fahrenheit and Celcius using Kelvin

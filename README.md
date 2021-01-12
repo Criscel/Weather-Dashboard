@@ -4,7 +4,7 @@ This page will enable the users to search for a City then the current weather wi
 ## Usage
 [Weather-Dashboard](https://criscel.github.io/Weather-Dashboard)
 
-![Inital Page](Assets/initial.jpg)
+![Inital Page](Assets/initial.JPG)
 ![Search Page](Assets/dashboard.JPG)
 
 ## Credits
