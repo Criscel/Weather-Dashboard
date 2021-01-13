@@ -25,13 +25,6 @@ function initPage() {
             console.log(response);
 
 //  Display current weather 
-            var currentDate = new Date(response.data.dt*1000);
-            console.log(currentDate);
-            var day = currentDate.getDate();
-            var year = currentDate.getFullYear();
-            //var time = new Date().toLocaleTimeString();
-            var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
             window.onload = currentDay();
             function currentDay () {
                 var currentDate = new Date(response.data.dt*1000);
@@ -109,7 +102,7 @@ function initPage() {
         });  
     }
 
-//search button
+//search button 
     searchEl.addEventListener("click",function() {
         var searchTerm = cityEl.value;
         getWeather(searchTerm);
